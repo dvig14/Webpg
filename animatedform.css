@@ -1,0 +1,238 @@
+*{
+    font-family:Arial, Helvetica, sans-serif;
+    margin:0;
+    box-sizing: border-box;
+    padding:0;
+}
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#333;
+    min-height:100vh;
+}
+.box{
+    position:relative;
+    height:420px;
+    width:380px;
+    background:#222;
+    border-radius:10px;
+    box-shadow: -3px -3px 20px #00000040, 
+    3px 3px 50px #00004000;
+    overflow:hidden;
+}
+.box::before{
+    content:'';
+    position:absolute;
+     width:380px;
+     height:420px;
+     background:linear-gradient(0deg,transparent,#45f565,#45f565);
+    top:-50%;
+    left:-50%;
+    animation:animate 5s linear infinite; 
+    transform-origin:bottom right;
+}
+.box::after{
+    content:'';
+    position:absolute;
+     width:380px;
+     height:420px;
+    background:linear-gradient(0deg,transparent,#45f5f2,#45f5f2);
+    top:-50%;
+    left:-50%;
+    animation:animate 5s linear infinite -2.5s; 
+    transform-origin:bottom right;
+}
+@keyframes animate{
+    0%{
+        transform:rotate(0deg);
+    }
+    100%{
+        transform:rotate(360deg);
+    }
+}
+.form{
+    position:absolute;
+    inset:2px;
+    background:#28292d;
+    border-radius:10px;
+    z-index:10;
+    flex-direction:column;
+    padding:50px 40px;
+}
+.form h2{
+    color:#45f5f2;
+    font-weight:500;
+    text-align:center;
+    letter-spacing:.1em;
+    pointer-events:none;
+}
+.inputbox{
+    position:relative;
+    width:300px;
+    margin-top:35px;
+}
+.inputbox input{
+    position:relative;
+    width:100%;
+    padding:20px 10px 10px;
+    background:transparent;
+    border:none;
+    outline:none;
+    color:#23242a;
+    font-size:1em;
+    letter-spacing:0.05em;
+    z-index:10;
+}
+.inputbox span{
+    position:absolute;
+    left:0;
+    padding:20px 10px 10px;
+    color:#8f8f8f;
+    font-size:1em;
+    pointer-events:none;
+    letter-spacing:0.05em;
+    transition:.5s;
+}
+.inputbox input:valid ~ span,
+.inputbox input:focus ~ span{
+    color:#45f5f2;
+    transform:translate(-10px,-34px);
+    font-size:0.70em;
+}
+.inputbox i{
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:2px;
+    background:#45f5f2;
+    border-radius:5px;
+    transform:.5s;
+    pointer-events:none;
+    z-index:2;
+}
+.inputbox input:valid ~ i,
+.inputbox input:focus ~ i{
+    height:40px;
+}
+.links{
+    display:flex;
+    justify-content:space-between;
+}
+.links a{
+    margin:16px 0px;
+    font-size:0.90em;
+    color:#8f8f8f;
+   text-decoration:none;
+}
+.links a:hover{
+    color:rgb(239, 60, 60);
+}
+.links a:nth-child(2){
+    color:#45f565;
+}
+input[type='submit']{
+    padding:8px 18px;
+    background:#45f565;
+    font-size:0.91em;
+    border: solid #45f565;
+    border-radius:3px;
+    color:white;
+    letter-spacing:0.1em;
+    margin:4px 16px;
+    cursor:pointer;
+    transition:all .5s linear;
+}
+input[type='submit']:hover{
+    background-color:#45f5f2;
+    border:solid #45f5f2;
+}
+
+@media (min-width:320px) and (max-width:410px){
+       .box{
+        width:300px;
+       }
+       .inputbox i{
+         width:80%;
+        margin:0 -10px;
+       }
+       .inputbox span{
+        margin:0 -10px;
+       }
+       .links a:nth-child(1){
+           margin:16px -9px;
+       }
+       .links a:nth-child(2){
+        margin:16px -10px;
+    }
+   input[type='submit']{
+        margin:4px 1px;
+        padding:6px 14px;
+    }
+}
+@media (min-width:260px) and (max-width:320px){
+    .box{
+     width:240px;
+    }
+    .inputbox i{
+      width:65%;
+     margin:0 -20px;
+    }
+    .inputbox span{
+     margin:0 -25px;
+    }
+    .links a:nth-child(1){
+        margin:16px -23px;
+    }
+    .links a:nth-child(2){
+     margin:16px -25px;
+ }
+input[type='submit']{
+    width:50%;
+     margin:4px -12px;
+     padding:4px 8px;
+ }
+}
+@media (max-width:260px){
+    .box{
+     width:195px;
+    }
+    .inputbox i{
+      width:55%;
+     margin:0 -25px;
+    }
+    .inputbox span{
+     margin:0 -30px;
+    }
+    .links a:nth-child(1){
+        margin:16px -20px;
+    }
+    .links a:nth-child(2){
+       margin:42px -25px 0px 0px;
+   }
+   input[type='submit']{
+      width:50%;
+     margin:5px -12px 0px;
+     padding:4px 8px;
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
